@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import usePageVisibility from 'hooks/usePageVisibility'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
-import GoogleAuthContext from 'contexts/google'
+import { AuthContext } from 'contexts/google'
 import Notify from 'utils/notify'
 import * as actions from 'actions'
 import * as searchActions from 'search/actions'
@@ -16,7 +16,7 @@ export const DashboardContainer = () => {
   const tracklist = useSelector(state => state.tracklist)
   const currentTrack = useSelector(state => state.track)
   const dispatch = useDispatch()
-  const { isSignedIn, googleUser, auth2 } = useContext(GoogleAuthContext)
+  const { isSignedIn, googleUser, auth2 } = useContext(AuthContext)
   const disable = !(isSignedIn && jukebox.mopidyOnline)
 
   useEffect(() => {

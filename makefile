@@ -33,7 +33,7 @@ stop-all:
 	docker-compose down
 
 fe:
-	yarn workspace @jukebox/frontend $(task)
+	export SET NODE_OPTIONS=--openssl-legacy-provider && yarn workspace @jukebox/frontend $(task)
 
 be:
 	yarn workspace @jukebox/backend $(task)
